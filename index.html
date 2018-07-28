@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			font-family: "verdana";
+		}
+		input{
+			
+			border: none;
+			outline:none;
+		}
+		.span-left{
+			display: block;
+			float: left;
+			width:200px;
+		}
+		
+		.bottom-line{
+			border-bottom:2px solid darkgrey;
+		}
+		
+		.box {
+			width:1000px;
+			margin: 20px auto;
+			background:red;
+		}
+		.box .word {
+			height: 100px;
+			background:white;
+		}
+		.box .word .p1{
+			font-size: 18px;
+			line-height:27px;
+			text-align: center;
+		}
+		.box .word .p2{
+			font-size: 14px;
+			line-height:18px;
+			text-align: center;
+		}
+		/* word */
+		
+		
+		.box .gender{
+			height: 130px;
+			line-height: 130px;
+			background:white;
+		}
+		.box .gender img{
+			vertical-align: middle;
+			width:45px;
+		}
+		.box .gender img.img01{
+			border : 2px solid #588290;
+			border-radius:50%;
+		}
+		.box .gender img:hover{
+			border : 10px solid #588290;
+			border-radius:50%;
+			cursor:pointer; /*???*/
+		}
+		/*gender*/
+		
+		.box .height-weight{
+			height: 130px;
+			line-height: 130px;
+			background: white;
+		}
+		
+		.box .height-weight .input01{
+			width:50px;
+			height: 50px;
+			border:2px solid #588290;
+			border-radius:5px;
+			text-align: center;
+		}
+		.box .height-weight .input02{
+			width:70px;
+			height: 50px;
+			border:1px solid #DDD;
+			border-radius:5px;
+			text-align: center;
+		}
+		.box .height-weight .input03{
+			width:90px;
+			height: 50px;
+			border:1px solid #DDD;
+			border-radius:5px;
+			text-align: center;
+		}
+		
+		.box .height-weight input:hover{
+			border:5px solid #588290;
+			border-radius:5px;
+			
+		}
+		
+		/*height-weight*/
+		
+		.box .family-hisitry{
+			
+			height: 170px;
+			line-height:170px;
+			background:white;
+		}
+		.box .family-hisitry .family-hisitry-right{
+			float:right;
+			width:800px;
+			height: 170px;
+			
+		}
+		
+		.box .family-hisitry .family-hisitry-right .p1{
+			line-height: 45px;
+		}
+		.box .family-hisitry .family-hisitry-right .p2{
+			line-height: 30px;
+		}
+		.box .family-hisitry .family-hisitry-right .fhr-left{
+			
+			width:40px;
+			height:40px;
+			background:#4683BA;
+			text-align: center;
+			line-height: 40px;
+			
+			
+			display: inline-block;/* ??? */
+			color:white;
+			border:1px solid #aaa;
+			border-radius:3px;
+			
+		}
+		.box .family-hisitry .family-hisitry-right  .question{
+			line-height: 100px;
+			height: 100px;
+			
+		}
+		.box .family-hisitry .family-hisitry-right  .question .fhr-right{
+			
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			border:1px solid aliceblue;
+			border-radius:3px;
+			line-height:40px;
+			vertical-align: middle;
+		}
+		/*family-hisitry*/
+		
+		.activity-level{
+			height:170px;
+			background:white;
+			line-height: 170px;
+		}
+		.activity-level .activity-level-right
+		{
+			float:right;
+			width:800px;
+			height: 170px;
+			
+		}
+		.activity-level .activity-level-right .alr-top{
+			height:44px;
+			line-height:44px;
+		}
+		
+		.activity-level .activity-level-right .alr-middle{
+			height: 50px;
+			line-height: 50px;
+			padding-left: 56px;
+			width: 465px;
+		}
+		.activity-level .activity-level-right .alr-middle img{
+			vertical-align: middle;
+		}
+		
+		.activity-level .activity-level-right .alr-middle .img02{
+			float: right;
+		}
+		.activity-level .activity-level-right .alr-foot{
+			height: 85px;
+			line-height: 85px;
+		}
+		.activity-level .activity-level-right .alr-foot .alr-foot-box{
+			height:85px;
+			width:400px;
+			float:left;
+			display: table-cell;
+			vertical-align: middle;
+			
+		}
+		.activity-level .activity-level-right .alr-foot .alr-foot-box .alr-radio{
+			width:35px;
+			height:35px;
+			border: 1px solid aliceblue;
+			border-radius: 50%;
+			margin-top:20px;
+			float:left;
+			margin-right: 20px;
+		}
+		.activity-level .activity-level-right .alr-foot .alr-foot-box .alr-radio-active{
+			width:30px;
+			height:30px;
+			background:#4683BA ;
+			padding: 5px;;
+			background-clip: content-box;
+		}
+		
+		.activity-level .activity-level-right .alr-foot .alr-foot-box .alr-radio:hover{
+			width:30px;
+			height:30px;
+			background:#4683BA ;
+			padding: 5px;;
+			background-clip: content-box;
+		}
+		
+		.activity-level .activity-level-right .alr-foot .alr-foot-box  p{
+			height:22px;
+			line-height: 22px;
+			font-size:15px;
+		}
+		.activity-level .activity-level-right .alr-foot .alr-foot-box  p.m-top{
+			margin-top:15px;
+		}
+		/*activity-level*/
+		
+		.diabetes{
+			height:170px;
+			background:white;
+			line-height: 170px;
+		}
+		.diabetes .diabetes-right{
+			float:right;
+			width:800px;
+			height: 170px;	
+		}
+		.diabetes .diabetes-right p{
+			height: 80px;
+			line-height: 80px;
+		}
+		.diabetes .diabetes-right .foot{
+			height:90px;
+			width:800px;
+			float:right;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="word">
+					<p class="p1">So far so good. Let's talk about your health.</p>
+					<p class="p2">We use this info to put you in a group with people close to your attributes (weird choice of word).</p>
+			</div>
+			
+			<div class="gender bottom-line">
+				<span class="span-left" >YOUR GENDER</span >
+				<img class="img01" src="img/boy.svg">&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img  src="img/girl_default.svg" >&nbsp;&nbsp;Female
+			</div>
+			
+			<div class="height-weight bottom-line">
+				<span class="span-left">HEIGHT&WEIGHT </span>
+				<input class="input01" type="text" value="5">&nbsp;ft.&nbsp;&nbsp;&nbsp;&nbsp;
+				<input class="input02" type="text" value="00">&nbsp;in.&nbsp;&nbsp;&nbsp;&nbsp;
+				<input class="input03" type="text" value="000">&nbsp;lbs.
+			</div>
+			
+			<div class="family-hisitry bottom-line">
+				<span class="span-left">FAMILY-HISITRY</span>
+				<div class="family-hisitry-right">
+					
+						<p class="p1">Any one in your family have prediabetes?</p>
+						<p class="p2">check all that apply. And if you would rather not say. that's okay.</p>
+					
+					
+					<div class="question">
+						<div class="fhr-left">
+							✔
+						</div>
+						Parents&nbsp;&nbsp;&nbsp;
+						<div class="fhr-right">
+							
+						</div>
+						Parents
+					</div>
+						
+					
+					
+				</div>
+			</div>
+			
+			<div class="activity-level bottom-line">
+				<span class="span-left">ACTIVITY-LEVEL</span>
+				<div class="activity-level-right">
+					
+						<p class="alr-top">How actiove are you on a weekly basis?</p>
+						<div class="alr-middle">
+							<img class="img01" src="img/tj1.png" >
+							<img class="img02" src="img/tj2.png" >
+
+						</div>
+						<div class="alr-foot">
+							<div class="alr-foot-box">
+								<div class="alr-radio">
+								</div>
+								<p class="m-top">Not very active</p>
+								<p >Less than 60 minutes of physical perweek</p>
+							</div>
+							<div class="alr-foot-box">
+								<div class="alr-radio alr-radio-active">
+								</div>
+								<p class="m-top">Active</p>
+								<p>60 minbutes physical activity per week</p>
+							</div>
+						</div>
+				</div>
+			</div>
+			
+			<div class="diabetes">
+				<span class="span-left">DIABETES</span>
+				<div class="diabetes-right">
+					<p>Have you been diagnosed with diabetes before</p>
+					<div class="foot">
+						<div>
+							Pre-diabetes
+						</div>
+						<div>
+							Type-2
+						</div>
+						<div>
+							Neither
+						</div>
+							
+					</div>
+					
+					
+						
+						
+						
+				</div>
+			</div>
+				
+		
+			
+			<div id="pregnancy">
+				
+				<span>PEEGNANCY</span>
+				<div id="pregnancy-right">
+					<p>Are you currently pregnant?</p>
+					<p>We need to add some friendly help text here.</p>
+					<div id="pr-1">
+						<input type="radio" name="2" id="2" value="" />
+					</div>
+					<div id="pr-2">
+						<p>Pregnant</p>
+						<p>Or have given brth with the last 6 weeks.</p>
+					</div>
+					<div id="pr-3">
+						<input type="radio" name="2" id="3" value="" />
+					</div>
+					<div id="pr-4">
+						<p>Not Pregnant</p>
+						<p>And have not given brith withn the last 6 weeks.</p>
+					</div>
+				</div>
+			</div>
+			<div class="tijao">
+				<input type="submit" name="complete" id="complete" value="COMPLETE" />
+			</div>
+			
+	</div>
+		
+	</body>
+</html>
