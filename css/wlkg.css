@@ -1,0 +1,274 @@
+
+		*{margin:0; padding:0; font-family:"微软雅黑"; font-size:12px;}
+		
+		#head{
+			width:970px;
+			height:50px;
+			margin: 0 auto;
+			padding:30px 15px 0px;
+			border :none;
+		}
+		.wlkj{
+			float:left;
+		}
+		.search {
+			float:right;
+			height:26px;
+			width:225px;
+			background:#f1f1f1;
+			line-height:26px;
+			border:1px solid #f1f1f1;
+		}
+		.text {
+			width:194px;
+			height:20px;
+			color:#858585;
+			background:#f1f1f1;
+			border:none;
+			float:left;
+			padding:3px;
+		}
+		.submit {
+			width:25px;
+			height:25px;
+			background : url(img/wolongimg2.jpg) no-repeat center;
+			border:none;
+			vertical-align:middle;
+			float:left;
+		}
+		
+		li{
+			list-style:none;
+		}
+		
+		#nav{
+			width:1000px;
+			height:60px;
+			background:black;
+			margin:0 auto;
+			
+		}
+		#nav ul{
+			padding:0px 15px;
+			margin-top: 0px;
+		}
+		#nav ul li{
+			float:left;
+		}
+		#nav ul li a{
+			text-decoration:none;
+			color:white;
+			display:block;
+			height:60px;
+			line-height:60px;
+			font-size:14px;
+			padding:0px 31px;
+			border-right:1px solid #4b4b4b;
+		}
+		
+		#nav ul li a.noline{
+			border-right:none;
+		}
+		
+		#nav ul li a:hover{
+			background:red;
+		}
+		#imgg{
+			width:1000px;
+			height:462px;
+			margin:0 auto;
+		}
+		
+		#body{
+			width:1000px;
+			margin:0 auto;
+		}
+		#body .news{
+			
+			float:left;
+			padding:0 20px;
+		}
+		.psize{
+			font-size:16px; color:#333; line-height:88px; height:73px;
+		}
+		#body .product{
+			width:195px;
+			float:left;
+			background:#f1f1f1;
+			height:263px;
+			padding:0 20px;
+		}
+		#body .zhaopin{
+			width:180px;
+			float:left;
+			height:263px;
+			padding:0 20px;
+			background : #fbfbfb url('img/green.jpg') no-repeat right bottom ;
+		}
+		
+		#body .news {
+			width:496px;
+			height:263px;
+			padding:0 28px 0 20px;
+		}
+		
+		#body .news ul li{ /* color:#565656; 在li上，为什么 日期变了，链接不变  */
+			
+			background:transparent url('img/list.jpg') no-repeat center left;
+			vertical-align:middle; 
+			line-height:25px;
+			overflow:hidden; 
+			padding-left:13px;
+			
+			
+			
+			/*line-height:25px;
+			vertical-align:middle;*/
+			
+		}
+		
+		#body .news ul li a{
+			display:inline-block;
+			color:#565656;
+			text-decoration:none;
+			width:353px;
+			white-space:nowrap;
+			
+			float:left;
+			text-overflow:ellipsis; /*  wei sha  lia ge  yi qi yong cai hao shi*/
+			overflow: hidden;/* kan kan !!!*/
+		}
+		#body .news ul li a:hover{
+			color:#da251c;
+		}
+		#body .news ul li span{
+			width:100px;
+			color:#565656;
+			float:right;
+			display:inline-block;
+		}
+		.psize1{
+			font-size: 14px;
+			color: #565656;
+			padding-top: 22px;
+		}
+		.psize2{
+			color: #565656;
+			line-height: 23px;
+		}
+		.psize3{
+			color: #969696;
+			line-height: 25px;
+			padding-top: 14px;
+		}
+		.zhaop1{
+			color: #565656;
+			line-height: 23px;
+		}
+		.amore{
+			display:block;
+			margin-top:50px;
+		}
+		
+		
+		#listimg{
+			clear:both;
+			width:1000px;
+			height:198px;;
+			margin:0 auto;
+			
+			padding: 26px 19px 0;
+		}
+		
+		#listimg dl{
+			float:left;
+			margin:0 19px;
+		}
+		#listimg dl dd{
+			display:block;
+			width:200px;
+			height:44px;
+			overflow:hidden;
+			white-space:pre-warp;
+			text-overflow:ellipsis;
+			line-height:22px;
+		}
+		#listimg dl dd a{
+			display:block;
+			text-decoration:none;
+			color: #969696;
+
+		}
+
+		#footer{
+			width:960px;
+			height:190px;
+			background:#E5E5E5;
+			margin:36px auto;
+			padding:30px 20px ;
+			margin-bottom:0;
+		}
+		.cpzx{
+			float:left;
+			width:452px; 
+			margin-right:43px;
+		}
+		.zphead{
+			height:37px;
+			line-height:37px;
+			border-bottom: 1px solid #c1c1c1;
+			color:#606060;
+			font-size:16px;
+			
+		}
+		.zplist ul{
+			float:left;
+			width:80px;
+			padding:8px 70px 0 0;
+		}
+		.zplist ul li{
+			background:url(img/foticon.jpg) no-repeat center left;
+			padding-left:17px;
+			line-height:24px;
+		}
+		.zplist ul li a{
+			text-decoration:none;
+			color:#616161;
+		}
+		.zplist ul li a:hover{
+			
+			color:#da251c;
+		}
+		
+		
+		.jsyf{
+			width:153px;
+			float:left;
+			padding-right:47px;
+		}
+		.yxwl{
+			width:250px;
+			float:left;
+		}
+		
+		#bottom{
+			width:964px;
+			height:60px;
+			margin:auto;
+			padding: 22px 14px 0 22px;
+		}
+		.lj{
+			float:left;
+			color:#868686;
+			
+		}
+		.lj a{
+			text-decoration:none;
+			color:#868686;
+			padding:0 6px;
+		}
+		.fx{
+			float:left;
+			color:#868686;
+			float:right;
+		}
