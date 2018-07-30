@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;;
+		}
+		.container{
+			width:640px;
+			position: absolute;
+			top:0;
+			bottom:0px;
+			left:0px;
+			right:0px;
+			margin: auto;
+		}
+		.logo{
+			width:640px;
+			height:158px;
+			background : url(img/baidu.png) no-repeat center;
+			background-size:40%;
+			
+		}
+		.search-box{
+			position:relative;
+		}
+		.search-box .phlogo{
+			width: 18px;
+			height:16px;
+			position:absolute;
+			top:11px;
+			right:111px;
+			overflow:hidden;
+		}
+		.search-box .phlogo:hover img{
+			position:relative;
+			top:-20px;
+		}
+	
+		.search-box input{
+			 
+			padding-left: 10px;
+			padding-right:35px;
+			width:493px;
+			height:36px; 	
+			border:1px solid  #bcbcbc;
+			outline: none;
+			
+		}
+		.search-box input:focus{
+			border-color:#3385ff;
+			
+		}
+		.search-box input:focus + .drop-list{
+			display: block;
+		}
+		.search-box .search{
+			width:100px;
+			height:38px;
+			float:right;
+			background:#3385ff;
+			text-align: center;
+			color:white;
+			line-height: 40px;
+			cursor: pointer;
+			
+		}
+		.drop-list{
+			margin-top: -1px;
+			list-style:none;
+			width:538px;
+			
+			position:absolute;
+			border:1px solid #bcbcbc;
+			display: none;
+		}
+		.drop-list li{
+			padding-left:10px;
+		}
+		.drop-list li:hover{
+			background: gray;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<div class="logo">
+			</div>
+			<div class="search-box">
+				<div class="phlogo">
+					<img src="img/baidu_logo.png" >
+				</div>
+				
+				<input type="text"  />
+				<ul class="drop-list">
+					<li>weixn</li>
+					<li>weixn</li>
+					<li>weixn</li>
+					<li>weixn</li>
+				</ul>
+				<div class="search">
+				百度一下
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
