@@ -1,0 +1,333 @@
+		*{
+			padding: 0;
+			margin: 0;
+			font :14px "microsoft yahei";
+		}
+		a{
+			text-decoration:none;
+		}
+		input{
+			border:none;
+			outline:none;
+		}
+		ul{
+			list-style: none;
+		}
+		.contianer{
+			width: 100%;
+			
+			
+			height: 1000px;
+		}
+		.head{
+			width:980px;
+			height:75px;
+			margin: 0 auto;
+			background:white;
+		}
+		.head a{
+			height: 75px;
+			width:350px;
+			line-height: 75px;
+			display: block;
+			float:left;
+		}
+		.head a img{
+			margin-top:20px;
+			float:left;
+		}
+		.head a p{
+			width:120px;
+			height:23px;
+			padding-left:10px;
+			border-left: 1px solid gray;
+			color:gray;
+			float:left;
+			font-size: 17px;
+			margin-left:15px;
+			margin-top:40px;
+			line-height:23px;
+		}
+		.head .head-right{
+			float:right;
+			height:32px;
+			line-height: 32px;
+			margin-top:30px;
+		}
+		.head .head-right span{
+			color:#666;
+			font-size:12px;
+		}
+		.head .head-right button{
+			height: 32px;
+			width:64px;
+			border:none;
+			background: #F2F2F2;
+			border:1px solid #666;
+			border-radius:3px;
+			margin-left:2px;
+		}
+		.hr{
+			background:url(img/reg_hr.png) no-repeat center;
+			height:20px;
+			position:relative;
+			left:0;
+			right:0;
+			margin-bottom:40px;
+			
+		}
+		.body{
+			overflow: hidden;
+			margin: 0 auto;
+			width:980px;
+		}
+		.regist{
+			width: 720px;
+			height:500px;
+			float:left;
+			background:white;
+		}
+		.regist .regit-list{
+			position: relative;
+			margin-bottom:20px;
+		}
+		.regist .regit-list input{
+			border:1px solid #dfdfdf;
+			width:328px;
+			height:16px;
+			padding:11px 10px;
+			margin-right: 10px;
+		}
+		
+		.regist .regit-list .span-name{
+			height:42px;
+			width:65px;
+			text-align: right;
+			display: inline-block;
+			line-height:42px;
+			margin-right:10px;
+			font-size:14px;
+			color:#666;
+			font-weight: bold;
+		}
+		.body .regist .regit-list .clear{
+			width:16px;
+			height:16px;
+			background: url(img/reg_icons.png) no-repeat -32px -25px;
+			position:absolute;
+			top:13px;
+			right:300px;
+			display: none;
+		}
+		.body .regist .regit-list .clear:hover{
+			background: url(img/reg_icons.png) no-repeat -48px -25px;
+		}
+		.body .regist .regit-list .tip{
+			width: 220px;
+			height:40px;
+			
+			float:right;
+			position:absolute;
+			top:0;
+			right:60px;
+			display: none;
+		} 
+		.body .regist .regit-list .tip span{
+			height:42px;
+			font-size: 12px;
+			color:#7f7f7f;
+			line-height:42px;
+		}
+		.body .regist .regit-list .tip p:first-child{
+			height:20px;
+			font-size: 12px;
+			color:#7f7f7f;
+			line-height:30px;
+		}
+		.body .regist .regit-list .tip p:last-child{
+			height:20px;
+			font-size: 12px;
+			color:#7f7f7f;
+			line-height:20px;
+		}
+		.body .regist .regit-list .error{
+			color:#fd7e7e;
+			font-size: 12px;
+			font-weight: 100;
+			position:absolute;
+			top:10px;
+			right:80px;
+			width: 200px;
+			height:19px;
+			line-height: 19px;
+			display: none;
+		}
+		.body .regist .regit-list .error img{
+			width:17px;
+			height:15px;
+			vertical-align: middle;	
+		}
+		.regist .regit-list input:focus{
+			border-color:#81b1ee;
+		}
+		.regist .regit-list input:focus ~ .clear{
+			display: block;
+		}
+		.regist .regit-list input:focus ~.tip{
+			display: block;
+		}
+		.regist .regit-list .password-tips{
+			height: 60px;
+			width:200px;
+			background: #f9f9f9;
+			padding:5px 10px;
+			border: 1px solid #dddddd;
+			position:absolute;
+			top:0;
+			right:50px;
+			
+		}
+		.regist .regit-list ul li{
+			height:20px;
+			line-height:20px;
+			font-size:12px;
+			color:#666;
+		}
+		.regist .regit-list ul li div{
+			display: inline-block;
+			width:16px;
+			height:16px;
+			vertical-align: middle;
+			background: url(img/reg_icons.png) no-repeat -80px  0px;
+			margin-right: 7px;
+		}
+		.regist .regit-list .gray{
+			color:#dddddd;
+			position:absolute;
+			top:10px;
+			right:270px;
+			font-size:20px;
+		}
+		.regist .regit-list .white{
+			color:#f9f9f9;
+			position:absolute;
+			top:10px;
+			right:269px;
+			font-size:20px;
+		}
+		#password-tips-container{
+			display: none;
+		}
+		.regist .regit-list input:focus ~ #password-tips-container{
+			display: block;
+		}
+		.regist .regit-list .check{
+			width:156px;
+		}
+		.regist .regit-list .button-check{
+			width:158px;
+			height:40px;
+			border: 1px solid #dddddd;
+			background: #f9f9f9;
+			padding: 0;
+			font-size: 14px;
+			color:#666;
+		}
+		.regist .regit-list .checkbox{
+			width:12.67px;
+			height: 12.67px;
+			padding-right: 0px;
+			margin-right: 0px;
+			vertical-align: middle;
+			margin-left: 80px;
+		}
+		.regist .regit-list .xieyi{
+			line-height: 10px;
+			display: inline-block;
+			font-size:12px;
+			color:#666;
+		}
+		.regist .regit-list  .sumbit-form{
+			width:350px;
+			height:50px;
+			background:#3f89ec;
+			color:white;
+			font-size: 16px;
+			border-radius:3px;
+			border: none;
+			margin-left: 80px;
+		}
+		.body .regist .regit-list .check ~ .clear{
+			width:16px;
+			height:16px;
+			background: url(img/reg_icons.png) no-repeat -32px -25px;
+			position:absolute;
+			top:13px;
+			right:471px;
+			display: none; 
+		}
+		.body .regist .regit-list .check:focus  ~ .clear{
+			display: block; 
+		}
+		.phone{
+			padding: 10px;
+			width:238px;
+			float:right;
+			height:406px;
+			background:yellow;
+			border:1px solid  #d1eeff;
+			background: #f5fbff;
+		}
+	
+		.phone h3{
+			
+			width:208px;
+			height:50px;
+			
+			line-height: 50px;
+			font-size: 14px;
+			
+			font-weight:bold;
+			border-bottom: 1px solid #e6edf2;
+		}
+		.phone h3 .img-phone{
+			vertical-align: middle;
+		}
+		.phone .p01{
+			font-size: 12px;
+			color:#666;
+			margin-top:20px;
+			margin-bottom: 5px;
+		}
+		.phone .p02{
+			font-size: 14px;
+			color:#f18300;
+			font-weight:bold; 
+		}
+		.phone .p03{
+			font-size: 12px;
+			color:#666;
+			margin-top:20px;
+		}
+		.phone .p04{
+			font-size: 14px;
+			color:#f18300;
+			font-weight:bold; 
+			height:25px;
+			line-height:25px;
+		}
+		.phone .p05{
+			font-size:12px;
+			color:#666;
+		}
+		.phone .img-er{
+			height:168px;
+			width: 168px;
+			display: block;
+			margin: 25px auto;
+			margin-bottom: 10px;
+		}
+		.phone .p06{
+			font-size:12px;
+			text-align: center;
+		}
