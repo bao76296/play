@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+	<style type="text/css">
+		#btn{
+			display:block;
+			width:100px;
+			height:30px;
+			background:black;
+			text-align:center;
+			line-height:30px;
+			text-decoration:none;
+			float:left;
+		}
+		table,td{
+			text-align:center;
+			vertical-align:middle;
+			border:1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+			window.onload = function(){
+			var bt = document.getElementById('btn');
+			bt.onclick = function(){
+				var r = getrandom(0,255);
+				var g = getrandom(0,255);
+				var b = getrandom(0,255);
+				var cl = document.getElementById('col').value;
+				var rw = document.getElementById('row').value;
+				var rl = r.length-1;
+				var gl = g.length-1;
+				var bl = b.length-1;
+				var tab = document.createElement("table");
+				for(var i =0;i<cl;i++){
+				var tr = document.createElement('tr');
+			
+				for(var j = 0;j<rw;j++){
+					var td = document.createElement('td');
+					td.innerHTML = Math.round(Math.random()*100);
+					tr.appendChild(td);
+					td.onclick = function(){
+						this.parentNode.parentNode.removeChild(this.parentNode);
+					}
+					
+					td.style.background = 'rgb('+r()+','+g()+','+b()+')'
+				}
+					tab.appendChild(tr);
+				}
+				document.body.appendChild(tab);
+			}
+		}
+		
+
+	
+		function getrandom(x,y){
+			var a = [];
+			for(var i = x;i<y;i++){
+				a[i]=i;
+			}
+			var s = y;
+			return function(){
+				
+				for(var i = x;i< s;i++){
+					var temp = Math.floor(Math.random()*(y-x)+x);
+					var num = a[temp];
+					a[temp] = a[y-1];
+					y--;
+					return num
+				}
+			}
+		}
+		
+		
+		
+		
+    </script>
+    <body>
+		<input type="text" id ="col">
+		<input type="text" id ="row">
+		<a href="#"  id ="btn">点击</a>
+    </body>
+    
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

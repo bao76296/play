@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#a{
+			width:50px;
+			height:50px;
+			background: red;
+			position: absolute;
+		}
+		#b{
+			width:500px;
+			height:500px;
+			background: black;
+		
+		
+			margin: 50px;
+		}
+	</style>
+	<script type="text/javascript" src = "common.js">
+		
+	</script>
+	<script type="text/javascript">
+		onload = function(){
+			var a = document.getElementById('a');
+			var b = document.getElementById('b')
+			moveEle(a,window,{
+				start : function(){console.log(1)}
+			})
+			
+			
+			// moveEle(a,b)
+		}
+
+	
+	</script>
+	<body>
+		
+		<div id="b">
+			<div id="a">
+				
+			</div>
+		</div>
+		
+	
+	</body>
+</html>

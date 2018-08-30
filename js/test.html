@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<!-- <script src="move.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- <script src="move.yintao1.04.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="Tween.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		* {
+			margin: 0; padding: 0;
+		}
+		html,body {
+			height: 100%; overflow: hidden;
+		}
+		#box {
+			position: absolute;
+			left:0; top:0;
+			width: 30px; height: 30px; background: darkcyan;
+			border-radius: 50%;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		<br>		<br>
+		<button type="button" onclick="bounceEaseOut()">bounceEaseOut</button>
+		<button type="button" onclick="elasticOut()">elasticOut</button>
+		<button type="button" onclick="linear()">linear</button>
+		<button type="button" onclick="BackeaseInOut()">BackeaseInOut</button>
+		<script type="text/javascript">
+			function linear(){
+				var times = 0;
+				var start = 0;
+				var distance = 600;
+				var totaltimes = 80;
+				var timer = setInterval(function(){
+					box.style.left = Math.tween.Quint.easeOut(times++, start, distance, totaltimes)+"px";
+					if(times > totaltimes) clearInterval(timer);
+				}, 30);
+			}
+			function bounceEaseOut(){
+				var times = 0;
+				var start = 0;
+				var distance = 600;
+				var totaltimes = 100;
+				var timer = setInterval(function(){
+					box.style.left = Math.tween.Quad.easeOut(times++, start, distance, totaltimes)+"px";
+					if(times > totaltimes) clearInterval(timer);
+				}, 30);
+			}
+			function BackeaseInOut(){
+				var times = 0;
+				var start = 0;
+				var distance = 600;
+				var totaltimes = 100;
+				var timer = setInterval(function(){
+					box.style.left = Math.tween.Back.easeInOut(times++, start, distance, totaltimes)+"px";
+					if(times > totaltimes) clearInterval(timer);
+				}, 30);
+			}
+			function elasticOut(){
+				var times = 0;
+				var start = 0;
+				var distance = 600;
+				var totaltimes = 80;
+				var timer = setInterval(function(){
+					box.style.width = box.style.height = Math.tween.Elastic.easeOut(times++, start, distance, totaltimes)+"px";
+					if(times > totaltimes) clearInterval(timer);
+				}, 30);
+			}
+		</script>
+	</body>
+</html>
