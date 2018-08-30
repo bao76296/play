@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0; margin: 0;
+		}
+		.main {
+			border: solid 1px black;
+			width: 600px; height: 512px;
+			background: url(img/bg_day.png) 0px 0;
+			margin: 20px auto;
+			position: relative;
+			
+			overflow: hidden;
+		}
+		.bird {
+			width: 37px; height: 27px;
+			background: url(img/bird0_0.png) no-repeat center;
+			position: absolute;
+			left: 50px; top: 200px;
+		}
+		.gameover {
+			width: 204px; height: 54px;
+			background: url(img/text_game_over.png);
+			margin: auto;
+			left: 0; top: 0; right: 0; bottom: 0;
+			position: absolute;
+			display: none;
+		}
+		.title {
+			width: 178px; height: 48px;
+			background: url(img/title.png);
+			margin: auto;
+			left: 0; top: 0; right: 0; bottom: 0;
+			position: absolute;
+		}
+		.bluebird {
+			display: block;
+			margin: 70px auto;
+		}
+		.start {
+			display: block;
+			position: absolute;
+			left: 240px; top:300px;
+			cursor: pointer;
+		}
+		.pipe{
+			position :absolute;
+			right:-52px;
+			width:52px;
+			height:320px;
+		}
+		.up {
+			background: url(img/pipe_up.png);
+		}
+		.down {
+			background: url(img/pipe_down.png);
+		}
+		#score{
+			width:100px;
+			height:44px;
+			position: absolute;
+			top:70px;
+			left: 265px;
+			z-index : 3;
+			display: none;
+		}
+		#score > div{
+			width:24px;
+			height:44px;
+			float: left;
+			background-repeat: no-repeat;
+			background-position: center;
+			
+		}
+	</style>
+	<body>
+		<div class="main">
+			<div class="bird" style="display: none;"></div>
+			<div id="score">
+				<div id="s1" style="background-image: url('img/font_0.png');" >
+					
+				</div>
+				<div id="s2" style="background-image: url('img/font_0.png');" >
+					
+				</div>
+				<div id="s3" style="background-image: url('img/font_0.png');">
+					
+				</div>
+			</div>
+			<div class="gameover">
+			</div>
+			<div class="title">
+			</div>
+			<img class="bluebird" src="img/bird1_0.png"/>
+			<img class="start" src="img/button_play.png"/>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../../js/common.js">
+		
+	</script>
+	<script type="text/javascript">
+		
+		Pipe.PIPE_TYPE_UP = 1;
+		Pipe.PIPE_TYPE_DOWN = 0;
+		
+		var box = [];
+		
+		
+		function controllyClass(key){
+			switch(key){
+				case "key" : return{
+					run : function (){
+						document.addEventListener('keydown',function(e){
+							if(e.keyCode == 32){
+								yellowBird.jump();
+							}
+							
+						})
+					}
+				} 
+				case "mouse" : return {
+					run : function(){
+						document.addEventListener('click',function(e){
+								yellowBird.jump();
+						})
+					}
+				}
+				case " " : return {
+					run : function(){
+						document.addEventListener('click',function(e){
+								yellowBird.jump();
+						})
+						document.addEventListener('keydown',function(e){
+							if(e.keyCode == 32){
+								yellowBird.jump();
+							}
+							
+						})
+					}
+				}
+			}
+		}
+		
+		//管道
+		
+		//黄色的鸟
+		var yellowBird = {
+			bird : document.getElementsByClassName('bird')[0],
+			init : function(){
+				this.bird.style.display = 'block';
+				yellowBird.fly();
+			},
+			top : function(){
+				return yellowBird.bird.offsetTop;
+			},
+			fly : function(){
+				yellowBird.speed = 0;
+				this.timer = setInterval(function(){
+					yellowBird.bird.style.top = yellowBird.top() + (this.speed ++) + "px";
+					if(this.bird.offsetTop <= 0 || this.bird.offsetTop >= this.bird.parentNode.offsetHeight || check(this.bird,box)){
+						game.over();
+					}	
+					
+				}.bind(this),30)
+				this.tshirt();
+				
+			},
+			tshirt : function(){
+				var x = 0;
+				this.timerTshirt = setInterval(function(){
+					this.bird.style.background = "url(img/bird0_"+ x++%3 +".png) center";
+				}.bind(this),30)
+			},
+			destroy : function(){
+				clearInterval(this.timer);
+				clearInterval(this.timerTshirt);
+			},
+			play : function(){
+				this.controlly.run();
+			},
+			controlly :  new controllyClass(' ')
+			,
+			jump : function(){
+				this.speed-=10;
+			}
+		}
+		
+		//蓝色的鸟
+		var blueBird = {
+			bird : document.getElementsByClassName('bluebird')[0],
+			top : function(val){
+				
+				if(val) this.bird.style.marginTop = val;
+				return this.bird.style.marginTop;
+			},
+			fly : function(){
+				var x = 0;
+				this.flytimer = setInterval(function(){
+					this.top( 70 -  Math.sin(Math.PI/180*x)*50 + "px") ;
+					x+=5;
+				}.bind(this),30)
+				this.tshirt();
+			},
+			tshirt : function(){
+				var x = 0;
+				this.tshirtTimer = setInterval(function(){
+					blueBird.bird.src = 'img/bird1_'+ x++%3 +'.png';
+				},30)
+			} ,
+			destory : function(){
+				this.bird.style.display = 'none';
+				clearInterval(this.flytimer);
+				clearInterval(this.tshirtTimer);
+			}
+		}
+		
+		//Game  
+		
+		 var game = {
+			startbtn : document.getElementsByClassName('start')[0],
+			background : document.getElementsByClassName('main')[0],
+			logo : document.getElementsByClassName('title')[0],
+			gameOver : document.getElementsByClassName('gameover')[0],
+			getscore : document.getElementById('score'),
+			getscoreChild : Array.from(document.getElementById('score').children),
+			score : 0 ,
+			
+			init : function(){
+				this.moveBackground();
+				blueBird.fly();
+				this.startbtn.addEventListener("click",function(){
+					this.start();
+				}.bind(this));
+				
+			},
+			moveBackground : function(){
+				var x = 0;
+				this.backgroundTimer = setInterval(function(){
+					this.background.style.backgroundPositionX  = x-- + "px";
+				}.bind(this),30)
+			},
+			hid : function(){
+				this.logo.style.display = 'none';
+				this.startbtn.style.display = 'none';
+			},
+			scoreBlock : function(){
+				this.getscore.style.display = 'block';
+			},
+			start : function(){
+				blueBird.destory();
+				this.hid();
+				yellowBird.init();
+				yellowBird.play();
+				this.scoreBlock();
+				this.autoPipe();
+				
+			},
+			over : function(){
+				yellowBird.destroy();
+				clearInterval(this.backgroundTimer);
+				clearTimeout(this.gameTimeOut);
+				this.gameOver.style.display = 'block';
+				for(var i in Pipe.timeOut){
+					clearTimeout(Pipe.timeOut[i]);
+				}
+			},
+			append : function(pipe){
+				
+				this.background.appendChild(pipe.pipe);
+			},
+			autoPipe : function(){
+				var p1 = new Pipe(Pipe.PIPE_TYPE_UP).init();
+				new Pipe(Pipe.PIPE_TYPE_DOWN).init(p1.temp);
+				this.gameTimeOut = setTimeout(arguments.callee,getRandom(3000,4000));
+				Pipe.timeOut.push(this.gameTimeOut);
+			},
+			displayscore : function(){
+				var str = this.score + '';
+				for(var i =0;i<str.length ;i++){
+					this.getscoreChild[2-i].style.backgroundImage = "url('img/font_"+ str[2-i] +".png')"
+				}
+				if(this.score >= 100 ){
+					this.getscoreChild[2].style.backgroundImage = "url('img/font_"+ str[2] +".png')";
+					this.getscoreChild[1].style.backgroundImage = "url('img/font_"+ str[1] +".png')"
+					this.getscoreChild[0].style.backgroundImage = "url('img/font_"+ str[0] +".png')"
+				}else if(this.score>=10){
+					this.getscoreChild[2].style.backgroundImage = "url('img/font_"+ str[1] +".png')";
+					this.getscoreChild[1].style.backgroundImage = "url('img/font_"+ str[0] +".png')"
+				}
+				else{
+					this.getscoreChild[2].style.backgroundImage = "url('img/font_"+ str[0] +".png')";
+				}
+			}
+			
+		}
+		Pipe.timeOut = [];
+		function Pipe(type){
+			this.pipe = document.createElement('div');
+			this.kongxi = 100;
+			this.init = function(_hight){
+				switch (type){
+					case Pipe.PIPE_TYPE_UP : {
+						this.pipe.className = 'pipe up';
+						this.temp = getRandom(-220,0) ;
+						this.pipe.style.top = this.temp + "px";
+						break;
+					}
+					case Pipe.PIPE_TYPE_DOWN : {
+						this.pipe.className = 'pipe down';
+						//this.temp = getRandom(-220, 500 - (320 + _hight)-320 ) ;
+						this.temp = getRandom(-220, -(320-(500-(320 + _hight) - this.kongxi)) ) ; 
+						this.pipe.style.bottom = this.temp + "px";
+					}
+				}
+				this.move();
+				game.append(this);
+				box.push(this.pipe);
+				return this;
+			}
+			this.move = function(){
+				var  x = 0;
+				var count = 0;
+				this.moveTimer = setInterval(function(){
+					this.pipe.style.right = -52 + (x+=3) +"px";
+					
+					if(this.pipe.offsetLeft <= -52){
+						count ++ ;
+						this.pipe.remove();
+						if(count == 50){
+							this.kongxi -=10;
+						}
+						clearInterval(this.moveTimer);
+					}
+				}.bind(this),30)
+				Pipe.timeOut.push(this.moveTimer);
+			}
+			
+		}
+		
+		
+		function check(ele,arr){
+			
+			
+			var left = ele.offsetLeft;
+			var right = ele.offsetLeft + ele.offsetWidth;
+			var top = ele.offsetTop;
+			var bottom = ele.offsetTop + ele.offsetHeight;
+			for(var i in arr){
+				if(arr[i].flag == true){
+					arr[i].p = "p"
+					game.score++;
+					
+					game.displayscore();
+					arr[i].flag = false;
+				}
+				if(arr[i].offsetHeight){
+					var moverRight = arr[i].offsetLeft+arr[i].offsetWidth;
+					var moveLeft = arr[i].offsetLeft;
+					var moveTop = arr[i].offsetTop;
+					var moveBottom = arr[i].offsetTop + arr[i].offsetHeight;
+					if(arr[i].className.indexOf('down') != -1){
+						if(right >= moveLeft && bottom >= moveTop && left <= moverRight ){
+							return true;
+							break;
+							
+						}
+						else if (right >= moveLeft && bottom < moveTop && left <= moverRight ){
+							if(arr[i].p!="p" && arr[i].flag != false){
+								arr[i].flag = true;
+							}
+							
+						}
+					}else{
+						if(right >= moveLeft && top <= moveBottom && left <= moverRight){
+							return true;
+						}
+						
+					}
+					
+				}
+			}
+		}
+		
+		
+		game.init();
+		
+		
+	</script>
+</html>

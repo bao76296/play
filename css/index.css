@@ -208,7 +208,7 @@
 			height: 140px;
 			float:left;
 			margin-right: 25px;
-			object-fit: contain;
+			object-fit: contain; 
 		}
 		.page-container .body .nav-banner .nav-body .nav-body-right-container .nav-body-right  p{
 			color:#fff;
