@@ -1,5 +1,4 @@
 node_modules/
-src/
 gulpfile.js
 dist/css/index.css
 dist/js/index.js
