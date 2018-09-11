@@ -23,14 +23,6 @@
 			position: absolute;
 			left: 50px; top: 200px;
 		}
-		.gameover {
-			width: 204px; height: 54px;
-			background: url(img/text_game_over.png);
-			margin: auto;
-			left: 0; top: 0; right: 0; bottom: 0;
-			position: absolute;
-			display: none;
-		}
 		.title {
 			width: 178px; height: 48px;
 			background: url(img/title.png);
@@ -77,6 +69,14 @@
 			background-position: center;
 			
 		}
+		.gameover {
+			width: 204px; height: 54px;
+			background: url(img/text_game_over.png);
+			margin: auto;
+			left: 0; top: 0; right: 0; bottom: 0;
+			position: absolute;
+			display: none;
+		}
 	</style>
 	<body>
 		<div class="main">
@@ -93,7 +93,7 @@
 				</div>
 			</div>
 			<div class="gameover">
-				<input type="reset"  />
+				
 			</div>
 			<div class="title">
 			</div>
@@ -226,8 +226,8 @@
 		 var game = {
 			startbtn : document.getElementsByClassName('start')[0],
 			background : document.getElementsByClassName('main')[0],
-			logo : document.getElementsByClassName('title')[0],
 			gameOver : document.getElementsByClassName('gameover')[0],
+			logo : document.getElementsByClassName('title')[0],
 			getscore : document.getElementById('score'),
 			getscoreChild : Array.from(document.getElementById('score').children),
 			score : 0 ,
